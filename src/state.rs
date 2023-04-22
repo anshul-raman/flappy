@@ -12,7 +12,6 @@ enum GameMode {
 pub struct State {
     mode: GameMode,
     player: Player,
-    frame_time: f32,
     obstacle: Obstacle,
     score: i32,
 }
@@ -22,7 +21,6 @@ impl State {
         Self {
             mode: GameMode::MainMenu,
             player: Player::new(5, 25),
-            frame_time: 0.0,
             obstacle: Obstacle::new(SCREEN_WIDTH, 0),
             score: 0,
         }
@@ -90,7 +88,6 @@ impl State {
 
     fn restart(&mut self) {
         self.player = Player::new(5, 25);
-        self.frame_time = 0.0;
         self.mode = GameMode::Playing;
         self.obstacle = Obstacle::new(SCREEN_WIDTH, 0);
         self.score = 0;
