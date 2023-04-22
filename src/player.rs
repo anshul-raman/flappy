@@ -71,12 +71,9 @@ impl Player {
     }
 
     pub fn flap(&mut self) {
-        match &self.wing_state {
-            WingState::Up => {
-                self.wing_state = WingState::Down;
-                self.acc_y -= 50.0;
-            }
-            _ => {}
+        if let WingState::Up = &self.wing_state {
+            self.wing_state = WingState::Down;
+            self.acc_y -= 50.0;
         }
     }
 
